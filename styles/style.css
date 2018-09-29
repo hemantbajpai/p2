@@ -1,0 +1,23 @@
+body {
+    padding: 20px;
+    text-align: center;
+}
+
+.panel {
+    text-align: center;
+    display: block;
+    margin: 5%;
+    padding: 5%;
+}
+
+.formButton {
+    margin: 2% 0%;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
