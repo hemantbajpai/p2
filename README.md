@@ -12,7 +12,8 @@
 + Dropdown to indicate what symbol to include
 
 ## Class
-+ `Form.php` 
++ `Form.php`
++ `Password.php`
 
 ## Code style divergences
 + None
