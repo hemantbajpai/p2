@@ -12,16 +12,16 @@ class Password
     {
     }
 
-    public function generateRandomPassword(int $numChars, bool $includeNumber, string $includeSpecialChar)
+    public function generateRandomPassword(int $lengthOfPassword, bool $includeNumber, string $includeSpecialChar)
     {
         $password = "";
-        $positionOfNumber = rand(0, $numChars - 1);
-        $positionOfSpecialChar = rand(0, $numChars - 1);
+        $positionOfNumber = rand(0, $lengthOfPassword - 1);
+        $positionOfSpecialChar = rand(0, $lengthOfPassword - 1);
         while ($positionOfNumber == $positionOfSpecialChar) {
-            $positionOfSpecialChar = rand(0, $numChars - 1);
+            $positionOfSpecialChar = rand(0, $lengthOfPassword - 1);
         }
 
-        for ($index = 0; $index < $numChars; $index++) {
+        for ($index = 0; $index < $lengthOfPassword; $index++) {
             if ($includeNumber and $index == $positionOfNumber) {
                 $password = $password . rand(0, 9);
             } else if ($includeSpecialChar != 'choose' and $index == $positionOfSpecialChar) {

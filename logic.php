@@ -8,7 +8,7 @@ $hasErrors = false;
 if (isset($_SESSION['results'])) {
     $results = $_SESSION['results'];
 
-    $numChars = $results['numChars'];
+    $lengthOfPassword = $results['lengthOfPassword'];
     $includeNumber = $results['includeNumber'];
     $includeSpecialChar = $results['includeSpecialChar'];
     $password = $results['password'];

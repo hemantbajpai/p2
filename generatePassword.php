@@ -16,23 +16,23 @@ $form = new Form($_GET);
 # Getting data
 $includeSpecialChar = $form->get('includeSpecialChar');
 $includeNumber = $form->has('includeNumber');
-$numChars = $form->get('numChars');
+$lengthOfPassword = $form->get('lengthOfPassword');
 
 # Validating the data
 $errors = $form->validate([
-    'numChars' => 'required|digit|min:3|max:15',
+    'lengthOfPassword' => 'required|digit',
     'includeSpecialChar' => 'required'
 ]);
 
 if (!$form->hasErrors) {
-    $password = $password->generateRandomPassword($numChars, $includeNumber, $includeSpecialChar);
+    $password = $password->generateRandomPassword($lengthOfPassword, $includeNumber, $includeSpecialChar);
 }
 
 # Storing results into session
 $_SESSION['results'] = [
     'errors' => $errors,
     'hasErrors' => $form->hasErrors,
-    'numChars' => $numChars,
+    'lengthOfPassword' => $lengthOfPassword,
     'includeNumber' => $includeNumber,
     'includeSpecialChar' => $includeSpecialChar,
     'password' => $password ?? null,

@@ -30,7 +30,10 @@ require 'logic.php';
                     <div class='field'>
                         <label class='col-sm-6 control-label'>Length of password</label>
                         <div class='col-sm-3'>
-                            <input class='form-control' type='number' name='numChars' value='<?= $numChars ?? '' ?>'>
+                            <input class='form-control'
+                                   type='number'
+                                   name='lengthOfPassword'
+                                   value='<?= $lengthOfPassword ?? '' ?>'>
                         </div>
                     </div>
                     <div class='field'>
