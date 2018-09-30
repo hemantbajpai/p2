@@ -19,54 +19,63 @@ require 'logic.php';
 </head>
 <body>
 <div class='row'>
-    <h1>Password Generator</h1>
+    <h1>Random Password Generator</h1>
+    <p>This website generates a random password based on your input.</p>
+    <p>You need to specify length of the password and whether you want to use number and/or special character.</p>
     <div class='panel panel-default'>
-        <form method='GET' action='generatePassword.php'>
-            <div class='panel-body form-horizontal payment-form'>
+        <div class='panel-body form-horizontal payment-form'>
+            <form method='GET' action='generatePassword.php'>
+
                 <fieldset>
-                    <label class='col-sm-6 control-label'>Number of characters</label>
-                    <div class='col-sm-3'>
-                        <input class='form-control' type='number' name='numChars' value='<?= $numChars ?? '' ?>'>
+                    <div class='field'>
+                        <label class='col-sm-6 control-label'>Length of password</label>
+                        <div class='col-sm-3'>
+                            <input class='form-control' type='number' name='numChars' value='<?= $numChars ?? '' ?>'>
+                        </div>
                     </div>
-                    <label class='col-sm-6 control-label'>Include a special character</label>
-                    <div class='col-sm-3'>
-                        <select class='form-control' name='includeSpecialChar'>
-                            <option value='choose'>Choose one...</option>
-                            <option value='~' <?php if (isset($includeNumber) and $includeSpecialChar == '~') echo 'selected' ?>>~</option>
-                            <option value='!' <?php if (isset($includeNumber) and $includeSpecialChar == '!') echo 'selected' ?>>!</option>
-                            <option value='@' <?php if (isset($includeNumber) and $includeSpecialChar == '@') echo 'selected' ?>>@</option>
-                            <option value='#' <?php if (isset($includeNumber) and $includeSpecialChar == '#') echo 'selected' ?>>#</option>
-                            <option value='$' <?php if (isset($includeNumber) and $includeSpecialChar == '$') echo 'selected' ?>>$</option>
-                            <option value='%' <?php if (isset($includeNumber) and $includeSpecialChar == '%') echo 'selected' ?>>%</option>
-                            <option value='^' <?php if (isset($includeNumber) and $includeSpecialChar == '^') echo 'selected' ?>>^</option>
-                            <option value='&' <?php if (isset($includeNumber) and $includeSpecialChar == '&') echo 'selected' ?>>&</option>
-                            <option value='*' <?php if (isset($includeNumber) and $includeSpecialChar == '*') echo 'selected' ?>>*</option>
-                        </select>
+                    <div class='field'>
+                        <label class='col-sm-6 control-label'>Include a special character</label>
+                        <div class='col-sm-3'>
+                            <select class='form-control' name='includeSpecialChar'>
+                                <option value='choose'>Choose one...</option>
+                                <option value='~' <?php if (isset($includeNumber) and $includeSpecialChar == '~') echo 'selected' ?>>~</option>
+                                <option value='!' <?php if (isset($includeNumber) and $includeSpecialChar == '!') echo 'selected' ?>>!</option>
+                                <option value='@' <?php if (isset($includeNumber) and $includeSpecialChar == '@') echo 'selected' ?>>@</option>
+                                <option value='#' <?php if (isset($includeNumber) and $includeSpecialChar == '#') echo 'selected' ?>>#</option>
+                                <option value='$' <?php if (isset($includeNumber) and $includeSpecialChar == '$') echo 'selected' ?>>$</option>
+                                <option value='%' <?php if (isset($includeNumber) and $includeSpecialChar == '%') echo 'selected' ?>>%</option>
+                                <option value='^' <?php if (isset($includeNumber) and $includeSpecialChar == '^') echo 'selected' ?>>^</option>
+                                <option value='&' <?php if (isset($includeNumber) and $includeSpecialChar == '&') echo 'selected' ?>>&</option>
+                                <option value='*' <?php if (isset($includeNumber) and $includeSpecialChar == '*') echo 'selected' ?>>*</option>
+                            </select>
+                        </div>
                     </div>
 
                     <label class='col-sm-6 control-label'>Include a number</label>
-                    <div class='col-sm-3'>
+                    <div class='col-sm-1'>
                         <input class='form-control' type='checkbox'
                                name='includeNumber' <?php if (isset($includeNumber) and $includeNumber) echo 'checked' ?> >
                     </div>
                 </fieldset>
                 <input type='submit' value='Generate password' class='btn btn-primary formButton'>
-        </form>
+            </form>
 
-        <?php if ($hasErrors): ?>
-            <div class='error'>
-                <?php foreach ($errors as $error): ?>
-                    <?= $error ?>
-                <?php endforeach; ?>
-            </div>
-        <?php endif ?>
-        <?php if (!$hasErrors): ?>
-            <?php if (isset($password)): ?>
-                Generated password is: <?= $password ?>
+            <?php if ($hasErrors): ?>
+                <div class='error'>
+                    <?php foreach ($errors as $error): ?>
+                        <?= $error ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif ?>
+            <?php if (!$hasErrors): ?>
+                <?php if (isset($password)): ?>
+                    <div class='output'>
+                        Generated password is: <?= $password ?>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
-        <?php endif; ?>
+        </div>
     </div>
-</div>
 </div>
 
 </body>
