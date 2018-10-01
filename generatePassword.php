@@ -20,7 +20,7 @@ $lengthOfPassword = $form->get('lengthOfPassword');
 
 # Validating the data
 $errors = $form->validate([
-    'lengthOfPassword' => 'required|digit',
+    'lengthOfPassword' => 'required|digit|min:3',
     'includeSpecialChar' => 'required'
 ]);
 
