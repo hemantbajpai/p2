@@ -7,7 +7,7 @@
 + HTML help <https://www.w3schools.com/html/default.asp>
 
 ## 3 Unique inputs
-+ Text input to indicate length of password 
++ Text input to indicate length of password, this is required and minimum length should be 3 
 + Checkbox to indicate whether to include a number 
 + Dropdown to indicate what symbol to include
 
