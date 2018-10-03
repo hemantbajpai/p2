@@ -6,7 +6,7 @@ require 'logic.php';
 <html lang='en'>
 <head>
 
-    <title>p2</title>
+    <title>Random Password Generator</title>
     <meta charset='utf-8'>
 
     <link rel="stylesheet"
@@ -28,7 +28,7 @@ require 'logic.php';
 
                 <fieldset>
                     <div class='field'>
-                        <label class='col-sm-6 control-label'>Length of password</label>
+                        <label class='col-sm-6 control-label'>Length of password (more than 2)</label>
                         <div class='col-sm-3'>
                             <input class='form-control'
                                    type='number'
